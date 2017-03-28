@@ -2,35 +2,13 @@
 var AudioContext = window.AudioContext || window.webkitAudioContext
 var audioCtx = new AudioContext()
 let oscList = []
-let masterGainNode = null
+let masterGainNode = audioContext.createGain()
 let volumeControl = document.querySelector("input[name='volume']")
 
-// create Oscillator and gain node
-var oscillator1 = audioCtx.createOscillator()
-var oscillator2 = audioCtx.createOscillator()
-var gainNode1 = audioCtx.createGain()
-var gainNode2 = audioCtx.createGain()
+masterGainNode.connect(audioContext.destination) // connect oscillator to gain node to speakers
 
-// connect oscillator to gain node to speakers
 
-gainNode1.connect(audioCtx.destination)
-gainNode2.connect(audioCtx.destination)
-
-// create initial theremin frequency and volumn values
-
-var maxFreq = 6000
-var maxVol = 0.02
-
-var initialFreq = 30
-var initialVol = 1.000
-
-// set options for the oscillator
-
-oscillator.start()
-
-gainNode.gain.value = initialVol
-
-var osc = (freq = 50, type = 'sine', detune = 100) => {
+function osc (freq = 50, type = 'sine', detune = 100) {
   let osc = audioCtx.createOscillator()
   osc.connect(masterGainNode)
   osc.frequency.value = freq // value in hertz
@@ -59,11 +37,13 @@ function changeVolume(event) {
   masterGainNode.gain.value = volumeControl.value
 }
 
-function setup() {
-  volumeControl.addEventListener("change", changeVolume, false)
-  masterGainNode = audioContext.createGain()
-  masterGainNode.connect(audioContext.destination)
-  masterGainNode.gain.value = volumeControl.value
-}
+volumeControl.addEventListener("change", changeVolume, false)
+masterGainNode.gain.value = volumeControl.value
 
-setup()
+var osc = audioCtx.createOscillator()
+osc.connect(masterGainNode)
+osc.frequency.value = 30
+osc.type = 'triange'
+osc.detune.value = 100
+
+osc.start(0)
