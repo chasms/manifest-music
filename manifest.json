@@ -1,0 +1,22 @@
+{
+  "name": "Manifest Music",
+  "description": "Web-driven synthesis",
+  "version": "1.0",
+  "content_scripts": [
+    {
+     "run_at": "document_end",
+     "js": ["manifest-music.js"],
+     "css": ["manifest-music.css"],
+     "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ],
+  "web_accessible_resources": ["manifest-music.css"],
+  "browser_action": {
+    "default_popup": "./popup/popup.html",
+    "default_title": "Manifest Music"
+  },
+  "manifest_version": 2
+}
