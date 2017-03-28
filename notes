@@ -7,9 +7,11 @@ To Do:
   * Determine what kind of user input data we want to use
     * canvas mouse pointer?
     * manually operated sliders as DOM objects in html?
+    * hit another API for data input to affect sound generation
+      * Google Maps
+      * 
 
 
 BONUS:
 * add favicon to files and manifest
 * build an accompanying chrome extension
-* hit another API for data input to affect sound generation
