@@ -3,10 +3,6 @@
   "name": "Music Manifest",
   "description": "Web-driven synthesis",
   "launch_path": "/index.html",
-  "icons": {
-    "60": "app-icons/icon-60.png",
-    "128": "app-icons/icon-128.png"
-  },
   "developer": {
     "name": "Nicholas Anaya and Charles Samuels",
     "url": "https://www.flatironschool.com"

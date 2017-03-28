@@ -1,0 +1,15 @@
+To Do:
+* Build API call
+* Build sounds
+* Build default settings for audio generation
+  * So that it works by default without user input off the bat
+* Build interface for input data to modify audio generation
+  * Determine what kind of user input data we want to use
+    * canvas mouse pointer?
+    * manually operated sliders as DOM objects in html?
+
+
+BONUS:
+* add favicon to files and manifest
+* build an accompanying chrome extension
+* hit another API for data input to affect sound generation
