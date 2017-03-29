@@ -2,9 +2,10 @@
 <html lang="en us">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
     <title>Manifest Music</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/manifest-music.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui-slider-pips.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
@@ -13,13 +14,18 @@
 
     <div class="settingsBar">
 
-      <button class="mute" data-muted="false">Mute</button>
-
       <div id="volume" class="slider"></div>
 
     </div>
+
+    <div class="oscillators">Ocillators:</div>
+
+    <section class="oscillator-details">
+
+    </section>
+
     <!-- include the jQuery and jQuery UI scripts -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script type="text/javascript" src="js/jquery-ui-slider-pips.js"></script>
