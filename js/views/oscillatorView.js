@@ -5,9 +5,7 @@ class OscillatorView {
   }
 
   static listItemTemplate(oscillator){
-    return `<li class="oscillator">
-      <div>Oscillator</div>
-    </li>
+    return `<a class="oscillator" href="#">Oscillator</a>
     `
   }
 }
