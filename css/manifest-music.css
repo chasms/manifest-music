@@ -1,0 +1,14 @@
+.oscillators {
+  width: 250px;
+  left: 0;
+  height: 500px;
+  background-color: red;
+  position: absolute;
+}
+.oscillator-detail {
+  width: 250px;
+  right: 0;
+  height: 500px;
+  background-color: blue;
+  position: absolute;
+}
