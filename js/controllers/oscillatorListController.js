@@ -12,9 +12,10 @@ class OscillatorListController {
   }
 
   attachListeners(){
-    this.$target.on('click', 'li.oscillator', (e) => {
+    this.$target.on('click', 'a.oscillator', (e) => {
       e.preventDefault()
-      this.detailController.setCurrent()
+      var index = $(e.target).attr('id')
+      this.detailController.setCurrent(index)
     })
   }
 }

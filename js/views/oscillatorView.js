@@ -4,8 +4,8 @@ class OscillatorView {
     $target.append(listItems)
   }
 
-  static listItemTemplate(oscillator){
-    return `<a class="oscillator" href="#">Oscillator</a>
+  static listItemTemplate(oscillator, index){
+    return `<a id="${index}" class="oscillator" href="#">Oscillator ${index + 1}</a>
     `
   }
 }
