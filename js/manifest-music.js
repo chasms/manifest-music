@@ -36,41 +36,20 @@ mute.onclick = function() {
 
 // volume control
 
-let volumeControl = document.querySelector("input[name='volume']")
-volumeControl.addEventListener("change", changeVolume, false)
-
-function changeVolume(event) {
-  gainNode.gain.value = volumeControl.value
-}
-
-$(".slider").slider().slider("float")
+$("#volume").slider({
+  min: 0.0,
+  max: 1.0,
+  value: 0.5,
+  step: 0.1,
+  //this gets a live reading of the value and prints it on the page
+  slide: function(event, ui) {
+    gainNode.gain.value = ui.value
+  }
+})
+.slider("pips",{
+  rest: "label"
+})
 
 // set gain to volume control slider
 
 gainNode.gain.value = volumeControl.value
-
-$("#flat-slider")
-    .slider({
-        max: 50,
-        min: 0,
-        range: true,
-        values: [15, 35]
-    })
-    .slider("pips", {
-        first: "pip",
-        last: "pip"
-    });
-
-$("#flat-slider-vertical-1, #flat-slider-vertical-2, #flat-slider-vertical-3")
-    .slider({
-        max: 25,
-        min: 0,
-        range: "min",
-        value: 20,
-        orientation: "vertical"
-    })
-    .slider("pips", {
-        first: "pip",
-        last: "pip"
-    })
-    .slider("float");
