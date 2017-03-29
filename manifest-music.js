@@ -3,34 +3,28 @@ var AudioContext = window.AudioContext || window.webkitAudioContext
 var audioCtx = new AudioContext()
 let oscList = []
 
-var oscillator = audioCtx.createOscillator()
-
 let gainNode = audioCtx.createGain()
 
-// let volumeControl = document.querySelector("input[name='volume']")
-// volumeControl.addEventListener("change", changeVolume, false)
+// create oscillators here:
+var oscillator1 = osc()
+var oscillator2 = osc(100, 'triangle')
 
-oscillator.connect(gainNode)
-gainNode.connect(audioCtx.destination) // connect oscillator to gain node to speakers
+gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
-oscillator.frequency.value = 30
-oscillator.type = 'triange'
-oscillator.detune.value = 100
+// start oscillators here:
+oscList.forEach(oscillator => {
+  oscillator.start(0)
+})
 
-oscillator.start(0)
-
-var initialVol = 1.000
-
-gainNode.gain.value = initialVol
-
-// function osc (freq = 50, type = 'sine', detune = 100) {
-//   let osc = audioCtx.createOscillator()
-//   osc.connect(gainNode)
-//   osc.frequency.value = freq // value in hertz
-//   osc.type = type // waveform: 'sine', 'square', 'sawtooth', 'triangle' and 'custom'
-//   osc.detune.value = detune // value in cents
-//   return osc
-// }
+function osc (freq = 50, type = 'sine', detune = 100) {
+  var oscillator = audioCtx.createOscillator()
+  oscillator.connect(gainNode)
+  oscillator.frequency.value = freq // value in hertz
+  oscillator.type = type // waveform: 'sine', 'square', 'sawtooth', 'triangle' and 'custom'
+  oscillator.detune.value = detune // value in cents
+  oscList.push(oscillator)
+  return oscillator
+}
 
 // mute button
 
@@ -48,6 +42,15 @@ mute.onclick = function() {
   }
 }
 
-// function changeVolume(event) {
-//   gainNode.gain.value = volumeControl.value
-// }
+// volume control
+
+let volumeControl = document.querySelector("input[name='volume']")
+volumeControl.addEventListener("change", changeVolume, false)
+
+function changeVolume(event) {
+  gainNode.gain.value = volumeControl.value
+}
+
+// set gain to volume control slider
+
+gainNode.gain.value = volumeControl.value
