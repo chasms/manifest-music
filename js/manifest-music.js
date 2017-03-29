@@ -9,6 +9,7 @@ let gainNode = audioCtx.createGain()
 
 var oscillator1 = osc()
 var oscillator2 = osc(100, 'triangle')
+var oscillator3 = osc(200)
 
 gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
@@ -37,7 +38,9 @@ $("#volume").slider({
 
 // set gain to volume control slider
 
-gainNode.gain.value = volumeControl.value
+gainNode.gain.value = 0.5
 
 let $target = $('div.oscillators')
-let $detailTarget = $(".oscillator-details")
+let $detailTarget = $('.oscillator-detail')
+let detailController = new OscillatorShowController($detailTarget)
+let listController = new OscillatorListController($target, oscList, detailController)
