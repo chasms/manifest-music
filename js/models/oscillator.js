@@ -10,6 +10,13 @@ function osc() {
       this.osc.detune.value = detune // value in cents
       this.id = id++
       store.add("oscillators", this)
+      this.appendToList()
+    }
+
+    appendToList(){
+      let $target = $oscillators()
+
+      OscillatorView.renderItem($target, this)
     }
   }
 }

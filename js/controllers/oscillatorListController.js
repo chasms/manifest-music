@@ -1,14 +1,8 @@
 class OscillatorListController {
-  constructor($target, oscillators, detailController) {
+  constructor($target, detailController) {
     this.$target = $target
-    this.oscillators = oscillators
     this.detailController = detailController
     this.attachListeners()
-    this.render()
-  }
-
-  render(){
-    OscillatorView.renderListItems(this.$target, this.oscillators)
   }
 
   attachListeners(){

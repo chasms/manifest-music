@@ -1,9 +1,13 @@
-.oscillators {
+.sources {
   width: 250px;
   left: 0;
   height: 500px;
   background-color: red;
   position: absolute;
+}
+.oscillators {
+  background-color: rgba(255, 0, 0, 0.5);
+  height: 250px;
 }
 .oscillator-detail {
   width: 250px;
