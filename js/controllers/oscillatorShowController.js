@@ -3,8 +3,7 @@ class OscillatorShowController {
     this.$target = $target
   }
 
-  setCurrent(index){
-    let oscillator = store[oscillators][index]
-    this.$target.html(`<h1>Type: ${oscillator.type}</h1> <h1>Frequency: ${oscillator.frequency.value}</h1>`)
+  setCurrent(oscillator){
+    this.$target.html(`<h1>Type: ${oscillator.osc.type}</h1> <h1>Frequency: ${oscillator.osc.frequency.value}</h1>`)
   }
 }

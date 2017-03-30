@@ -14,8 +14,9 @@ class OscillatorListController {
   attachListeners(){
     this.$target.on('click', 'a.oscillator', (e) => {
       e.preventDefault()
-      var index = $(e.target).attr('id')
-      this.detailController.setCurrent(index)
+      let id = $(e.target).attr('data-type')
+      let oscillator = store.find('oscillators', id)
+      this.detailController.setCurrent(oscillator)
     })
   }
 }

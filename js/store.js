@@ -4,12 +4,12 @@ class Store {
   }
 
   add(resource, object){
-    this.state[resource] = this.state[resource] || {} // Yuck
+    this.state[resource] = this.state[resource] || []
     this.state[resource][object.id] = object
   }
 
   find(resource, id){
-    this.state[resource] = this.state[resource] || {} // Yuck
+    this.state[resource] = this.state[resource] || []
     return this.state[resource][id]
   }
 }

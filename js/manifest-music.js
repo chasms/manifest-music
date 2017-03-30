@@ -8,9 +8,8 @@ let gainNode = audioCtx.createGain()
 
 // create oscillators here:
 
-var oscillator1 = new osc()
-var oscillator2 = new osc(100, 'triangle')
-var oscillator3 = new osc(200)
+var oscillator = osc()
+new oscillator(100, 'triangle')
 
 gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
@@ -44,4 +43,4 @@ gainNode.gain.value = 0.5
 let $target = $('div.oscillators')
 let $detailTarget = $('.oscillator-detail')
 let detailController = new OscillatorShowController($detailTarget)
-let listController = new OscillatorListController($target, oscList, detailController)
+let listController = new OscillatorListController($target, store.state.oscillators, detailController)
