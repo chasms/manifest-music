@@ -1,23 +1,24 @@
 // create web audio api context
 var AudioContext = window.AudioContext || window.webkitAudioContext
 var audioCtx = new AudioContext()
-let oscList = []
+// let oscList = []
+let store = new Store()
 
 let gainNode = audioCtx.createGain()
 
 // create oscillators here:
 
-var oscillator1 = osc()
-var oscillator2 = osc(100, 'triangle')
-var oscillator3 = osc(200)
+var oscillator1 = new osc()
+var oscillator2 = new osc(100, 'triangle')
+var oscillator3 = new osc(200)
 
 gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
 // start oscillators here:
 
-oscList.forEach(oscillator => {
-  oscillator.start(0)
-})
+// oscList.forEach(oscillator => {
+//   oscillator.start(0)
+// })
 
 // volume control
 var volumeValues = ["mute"]
