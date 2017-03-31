@@ -5,15 +5,14 @@
     <title>Manifest Music</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src=".env"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="css/manifest-music.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui-slider-pips.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
   </head>
   <body>
-    <div class="track-list">
 
-    </div>
     <div class="settingsBar">
       <div id="volume" class="slider"></div>
     </div>
@@ -31,8 +30,14 @@
         <input type="submit" name="new-osc" value ="Create New Oscillator">
       </form>
 
+      <button type="button" name="button" onclick="startOsc(event)">Start Oscillators</button>
+      <button type="button" name="button" onclick="stopOsc(event)">Stop Oscillators</button>
+
       <h3>Ocillators:</h3>
       <ul class="oscillators"></ul>
+    </div>
+
+    <div class="track-list">
     </div>
 
     <section class="oscillator-detail"></section>
@@ -44,7 +49,7 @@
     <script type="text/javascript" src="js/models/oscillator.js"></script>
     <script type="text/javascript" src="js/models/track.js"></script>
     <script type="text/javascript" src="js/views/trackView.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/controllers/trackListController.js"></script>
     <script type="text/javascript" src="js/controllers/oscillatorListController.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/controllers/oscillatorShowController.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/views/oscillatorView.js" charset="utf-8"></script>

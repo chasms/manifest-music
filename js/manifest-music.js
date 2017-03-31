@@ -15,7 +15,7 @@ function newOsc() {
 }
 
 function oscForm(event) {
-  debugger
+  // debugger
   event.preventDefault()
   newOsc()
 }
@@ -25,6 +25,20 @@ newOsc()
 gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
 // start oscillators here:
+
+function startOsc(event) {
+  event.preventDefault()
+  store.state.oscillators.forEach(oscillator => {
+    oscillator.osc.start(0)
+  })
+}
+
+function stopOsc(event) {
+  event.preventDefault()
+  store.state.oscillators.forEach(oscillator => {
+    oscillator.osc.stop(0)
+  })
+}
 
 // oscList.forEach(oscillator => {
 //   oscillator.start(0)
@@ -55,7 +69,6 @@ function $oscillators() {
   return $('ul.oscillators')
 }
 
-let $target = $oscillators()
 let $detailTarget = $('.oscillator-detail')
 let detailController = new OscillatorShowController($detailTarget)
-let listController = new OscillatorListController($target, detailController)
+let listController = new OscillatorListController($oscillators(), detailController)

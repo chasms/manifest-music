@@ -3,18 +3,19 @@ class Track {
     return Api.getJSON("tracks", "").then(({dataset}) => dataset)
   }
 
-  constructor(id) {
+  constructor(id, url, title, artist) {
     this.id = id
-    let data = Track.getTrackById(id)
-    debugger
-    this.url = data[track_url] // needs to be fixed
+    this.url = `http://files.freemusicarchive.org/${url}`
+    this.title = title
+    this.artist = artist
   }
 
   static getTrackById(id) {
-    return Api.getJSON(`tracks`, `&track_id=${id}`).then(({dataset}) => dataset)
+    Api.getJSON(`tracks`, `&track_id=${id}`).then(({dataset}) => dataset).then((track) => {
+      let trk = new Track(track.track_id, track.track_file, track.track_title, track.artist_name)
+      store.add('tracks', trk)
+    })
   }
 }
 
-
-var track = new Track(1)
-track.url
+Track.getTrackById(2)
