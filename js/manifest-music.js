@@ -14,6 +14,12 @@ function newOsc() {
   new oscillator()
 }
 
+function oscForm(event) {
+  debugger
+  event.preventDefault()
+  newOsc()
+}
+
 newOsc()
 
 gainNode.connect(audioCtx.destination) // connect gain node to speakers

@@ -19,8 +19,19 @@
     </div>
 
     <div class="sources">
-      <button type="button" onclick="newOsc()" name="new-osc">Create New Oscillator</button>
-      <h5>Ocillators:</h5>
+
+      <form class="" onsubmit="oscForm(event)">
+        <label for="wave">Waveform:</label>
+        <select name="wave">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+        </select>
+        <input type="submit" name="new-osc" value ="Create New Oscillator">
+      </form>
+
+      <h3>Ocillators:</h3>
       <ul class="oscillators"></ul>
     </div>
 
