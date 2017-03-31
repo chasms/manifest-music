@@ -5,7 +5,7 @@ class Track {
 
   constructor(id) {
     this.id = id
-    let data = this.getTrackById(id)
+    let data = Track.getTrackById(id)
     debugger
     this.url = data[track_url] // needs to be fixed
   }
