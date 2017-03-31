@@ -10,7 +10,7 @@ class Track {
     this.url = data[track_url] // needs to be fixed
   }
 
-  getTrackById(id) {
+  static getTrackById(id) {
     return Api.getJSON(`tracks`, `&track_id=${id}`).then(({dataset}) => dataset)
   }
 }
