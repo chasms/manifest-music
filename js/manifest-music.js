@@ -40,10 +40,6 @@ function stopOsc(event) {
   })
 }
 
-// oscList.forEach(oscillator => {
-//   oscillator.start(0)
-// })
-
 // volume control
 var volumeValues = ["mute"]
 
