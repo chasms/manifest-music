@@ -21,6 +21,7 @@ function oscForm(event) {
 }
 
 newOsc()
+newOsc()
 
 gainNode.connect(audioCtx.destination) // connect gain node to speakers
 
